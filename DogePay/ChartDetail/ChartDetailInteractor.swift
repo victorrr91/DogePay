@@ -11,31 +11,60 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 protocol ChartDetailBusinessLogic
 {
-  func doSomething(request: ChartDetail.Something.Request)
+    func fetchPriceLists()
 }
 
 protocol ChartDetailDataStore
 {
-  //var name: String { get set }
+    var bitcoinList: BehaviorRelay<[Msg]> { get set }
+    var dolloarList: BehaviorRelay<[Msg]> { get set }
+    var etherList: BehaviorRelay<[Msg]> { get set }
+    var audList: BehaviorRelay<[Msg]> { get set }
+    var priceBase: BehaviorRelay<String> { get set }
 }
 
 class ChartDetailInteractor: ChartDetailBusinessLogic, ChartDetailDataStore
 {
-  var presenter: ChartDetailPresentationLogic?
-  var worker: ChartDetailWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: ChartDetail.Something.Request)
-  {
-    worker = ChartDetailWorker()
-    worker?.doSomeWork()
-    
-    let response = ChartDetail.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var bitcoinList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var dolloarList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var etherList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var audList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var priceBase: BehaviorRelay<String> = BehaviorRelay(value: "")
+
+    var disposeBag = DisposeBag()
+
+    var presenter: ChartDetailPresentationLogic?
+    var worker: ChartDetailWorker?
+
+    // MARK: Do something
+
+    func fetchPriceLists()
+    {
+        priceBase.subscribe(onNext: { [weak self] priceBase in
+            guard let self = self else { return }
+
+            if priceBase == "BTC" {
+                self.bitcoinList.subscribe(onNext: { bitcoins in
+                    self.presenter?.presentPriceList(data: bitcoins)
+                }).disposed(by: self.disposeBag)
+            } else if priceBase == "USD" {
+                self.dolloarList.subscribe(onNext: { dollars in
+                    self.presenter?.presentPriceList(data: dollars)
+                }).disposed(by: self.disposeBag)
+            } else if priceBase == "ETH" {
+                self.etherList.subscribe(onNext: { ethercoins in
+                    self.presenter?.presentPriceList(data: ethercoins)
+                }).disposed(by: self.disposeBag)
+            } else {
+                self.audList.subscribe(onNext: { audollars in
+                    self.presenter?.presentPriceList(data: audollars)
+                }).disposed(by: self.disposeBag)
+            }
+        }).disposed(by: disposeBag)
+    }
 }

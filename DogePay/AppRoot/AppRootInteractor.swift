@@ -11,31 +11,31 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-protocol AppRootBusinessLogic
-{
-  func doSomething(request: AppRoot.Something.Request)
+protocol AppRootBusinessLogic {
+    func connect()
 }
 
-protocol AppRootDataStore
-{
-  //var name: String { get set }
+protocol AppRootDataStore {
+    var price: BehaviorRelay<Msg?> { get set }
 }
 
-class AppRootInteractor: AppRootBusinessLogic, AppRootDataStore
-{
-  var presenter: AppRootPresentationLogic?
-  var worker: AppRootWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: AppRoot.Something.Request)
-  {
-    worker = AppRootWorker()
-    worker?.doSomeWork()
-    
-    let response = AppRoot.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+class AppRootInteractor: AppRootBusinessLogic, AppRootDataStore {
+    var price: BehaviorRelay<Msg?> = BehaviorRelay(value: nil)
+
+    var presenter: AppRootPresentationLogic?
+    var worker: AppRootWorker?
+
+    var disposeBag = DisposeBag()
+
+    func connect() {
+        worker = AppRootWorker()
+        worker?.connect()
+
+        worker?.price.subscribe(onNext: { [weak self] msg in
+            self?.price.accept(msg)
+        }).disposed(by: disposeBag)
+    }
 }

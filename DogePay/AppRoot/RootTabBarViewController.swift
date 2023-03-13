@@ -1,5 +1,5 @@
 //
-//  AppRootViewController.swift
+//  RootTabBarViewController.swift
 //  DogePay
 //
 //  Created by Victor Lee on 2023/03/09.
@@ -12,78 +12,69 @@
 
 import UIKit
 
-protocol AppRootDisplayLogic: class
-{
-  func displaySomething(viewModel: AppRoot.Something.ViewModel)
+protocol AppRootDisplayLogic: AnyObject {
 }
 
-class AppRootViewController: UIViewController, AppRootDisplayLogic
-{
-  var interactor: AppRootBusinessLogic?
-  var router: (NSObjectProtocol & AppRootRoutingLogic & AppRootDataPassing)?
+class RootTabBarViewController: UITabBarController, AppRootDisplayLogic {
+    var interactor: AppRootBusinessLogic?
+    var router: (NSObjectProtocol & AppRootRoutingLogic & AppRootDataPassing)?
 
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
-  {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder)
-  {
-    super.init(coder: aDecoder)
-    setup()
-  }
-  
-  // MARK: Setup
-  
-  private func setup()
-  {
-    let viewController = self
-    let interactor = AppRootInteractor()
-    let presenter = AppRootPresenter()
-    let router = AppRootRouter()
-    viewController.interactor = interactor
-    viewController.router = router
-    interactor.presenter = presenter
-    presenter.viewController = viewController
-    router.viewController = viewController
-    router.dataStore = interactor
-  }
-  
-  // MARK: Routing
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
-  {
-    if let scene = segue.identifier {
-      let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
-      if let router = router, router.responds(to: selector) {
-        router.perform(selector, with: segue)
-      }
+    // MARK: Object lifecycle
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+
+        connect()
     }
-  }
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad()
-  {
-    super.viewDidLoad()
-    doSomething()
-  }
-  
-  // MARK: Do something
-  
-  //@IBOutlet weak var nameTextField: UITextField!
-  
-  func doSomething()
-  {
-    let request = AppRoot.Something.Request()
-    interactor?.doSomething(request: request)
-  }
-  
-  func displaySomething(viewModel: AppRoot.Something.ViewModel)
-  {
-    //nameTextField.text = viewModel.name
-  }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+
+    // MARK: Setup
+
+    private func setup() {
+        let viewController = self
+        let interactor = AppRootInteractor()
+        let presenter = AppRootPresenter()
+        let router = AppRootRouter()
+        viewController.interactor = interactor
+        viewController.router = router
+        interactor.presenter = presenter
+        presenter.viewController = viewController
+        router.viewController = viewController
+        router.dataStore = interactor
+
+        router.setTabBarViewControllers()
+        tabBarController?.delegate = self
+
+        router.routeToDogeHome()
+    }
+
+    // MARK: Routing
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let scene = segue.identifier {
+            let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
+            if let router = router, router.responds(to: selector) {
+                router.perform(selector, with: segue)
+            }
+        }
+    }
+    
+    func connect() {
+        interactor?.connect()
+    }
+}
+
+extension RootTabBarViewController: UITabBarControllerDelegate {
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 0 {
+            router?.routeToDogeHome()
+        } else {
+            router?.routeToChartHome()
+        }
+    }
 }

@@ -11,31 +11,30 @@
 //
 
 import UIKit
+import RxSwift
+import RxRelay
 
-protocol DogeHomeBusinessLogic
-{
-  func doSomething(request: DogeHome.Something.Request)
+protocol DogeHomeBusinessLogic {
+    func connect()
 }
 
-protocol DogeHomeDataStore
-{
-  //var name: String { get set }
+protocol DogeHomeDataStore {
+    var price: BehaviorRelay<Msg?> { get set }
 }
 
-class DogeHomeInteractor: DogeHomeBusinessLogic, DogeHomeDataStore
-{
-  var presenter: DogeHomePresentationLogic?
-  var worker: DogeHomeWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: DogeHome.Something.Request)
-  {
-    worker = DogeHomeWorker()
-    worker?.doSomeWork()
-    
-    let response = DogeHome.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+class DogeHomeInteractor: DogeHomeBusinessLogic, DogeHomeDataStore {
+    var price: BehaviorRelay<Msg?> = BehaviorRelay(value: nil)
+
+    var presenter: DogeHomePresentationLogic?
+    var worker: DogeHomeWorker?
+    var disposeBag = DisposeBag()
+
+    // MARK: Do something
+
+    func connect() {
+        price.subscribe(onNext: { [weak self] data in
+            guard let data = data else { return }
+            self?.presenter?.presentPrice(data: data)
+        }).disposed(by: disposeBag)
+    }
 }

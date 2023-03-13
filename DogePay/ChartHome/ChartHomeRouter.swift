@@ -11,50 +11,47 @@
 //
 
 import UIKit
+import RxSwift
 
-@objc protocol ChartHomeRoutingLogic
+protocol ChartHomeRoutingLogic
 {
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToChartDetail(priceBase: String)
 }
 
 protocol ChartHomeDataPassing
 {
-  var dataStore: ChartHomeDataStore? { get }
+    var dataStore: ChartHomeDataStore? { get }
 }
 
 class ChartHomeRouter: NSObject, ChartHomeRoutingLogic, ChartHomeDataPassing
 {
-  weak var viewController: ChartHomeViewController?
-  var dataStore: ChartHomeDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+    weak var viewController: ChartHomeViewController?
+    var dataStore: ChartHomeDataStore?
+    var disposeBag = DisposeBag()
 
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: ChartHomeViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: ChartHomeDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    // MARK: Routing
+
+    func routeToChartDetail(priceBase: String) {
+        let destinationVC = ChartDetailViewController()
+        navigateToChartDetail(source: viewController!, destination: destinationVC)
+        let destinationDS = destinationVC.router!.dataStore!
+        passDataToChartDetail(source: dataStore!, destination: destinationDS, priceBase: priceBase)
+
+    }
+
+    // MARK: Navigation
+
+    func navigateToChartDetail(source: ChartHomeViewController, destination: ChartDetailViewController) {
+        source.present(destination, animated: false)
+    }
+
+    // MARK: Passing data
+
+    func passDataToChartDetail(source: ChartHomeDataStore, destination: ChartDetailDataStore, priceBase: String) {
+        source.bitcoinList.subscribe(onNext: { destination.bitcoinList.accept($0)} ).disposed(by: disposeBag)
+        source.dolloarList.subscribe(onNext: { destination.dolloarList.accept($0)} ).disposed(by: disposeBag)
+        source.audList.subscribe(onNext: { destination.audList.accept($0)} ).disposed(by: disposeBag)
+        source.etherList.subscribe(onNext: { destination.etherList.accept($0)} ).disposed(by: disposeBag)
+        destination.priceBase.accept(priceBase)
+    }
 }

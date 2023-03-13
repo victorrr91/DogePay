@@ -12,20 +12,20 @@
 
 import UIKit
 
-protocol DogeHomePresentationLogic
-{
-  func presentSomething(response: DogeHome.Something.Response)
+protocol DogeHomePresentationLogic {
+    func presentPrice(data: Msg)
 }
 
-class DogeHomePresenter: DogeHomePresentationLogic
-{
-  weak var viewController: DogeHomeDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: DogeHome.Something.Response)
-  {
-    let viewModel = DogeHome.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class DogeHomePresenter: DogeHomePresentationLogic {
+    weak var viewController: DogeHomeDisplayLogic?
+
+    // MARK: Do something
+
+    func presentPrice(data: Msg) {
+        typealias DisplayedPrice = DogeHome.ConnectWebSocket.ViewModel.DisplayedPrice
+        let displayedPrice = DisplayedPrice(msg: data)
+
+        let viewModel = DogeHome.ConnectWebSocket.ViewModel(displayedPrice: displayedPrice)
+        viewController?.displayPrice(viewModel: viewModel)
+    }
 }

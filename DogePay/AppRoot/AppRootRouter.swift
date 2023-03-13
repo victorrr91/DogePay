@@ -11,50 +11,69 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-@objc protocol AppRootRoutingLogic
-{
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
+@objc protocol AppRootRoutingLogic {
+    func routeToDogeHome()
+    func routeToChartHome()
 }
 
-protocol AppRootDataPassing
-{
-  var dataStore: AppRootDataStore? { get }
+protocol AppRootDataPassing {
+    var dataStore: AppRootDataStore? { get }
 }
 
-class AppRootRouter: NSObject, AppRootRoutingLogic, AppRootDataPassing
-{
-  weak var viewController: AppRootViewController?
-  var dataStore: AppRootDataStore?
-  
-  // MARK: Routing
-  
-  //func routeToSomewhere(segue: UIStoryboardSegue?)
-  //{
-  //  if let segue = segue {
-  //    let destinationVC = segue.destination as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //  } else {
-  //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-  //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-  //    var destinationDS = destinationVC.router!.dataStore!
-  //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-  //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-  //  }
-  //}
+class AppRootRouter: NSObject, AppRootRoutingLogic, AppRootDataPassing {
+    weak var viewController: RootTabBarViewController?
+    var dataStore: AppRootDataStore?
+    var disposeBag = DisposeBag()
 
-  // MARK: Navigation
-  
-  //func navigateToSomewhere(source: AppRootViewController, destination: SomewhereViewController)
-  //{
-  //  source.show(destination, sender: nil)
-  //}
-  
-  // MARK: Passing data
-  
-  //func passDataToSomewhere(source: AppRootDataStore, destination: inout SomewhereDataStore)
-  //{
-  //  destination.name = source.name
-  //}
+    var dogeHomeRouter: DogeHomeViewController
+    var chartHomeRouter: ChartHomeViewController
+
+    override init() {
+        self.dogeHomeRouter = DogeHomeViewController()
+        self.chartHomeRouter = ChartHomeViewController()
+    }
+
+    func setTabBarViewControllers() {
+        dogeHomeRouter = DogeHomeViewController()
+        dogeHomeRouter.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "bitcoinsign.square"), selectedImage: UIImage(systemName: "bitcoinsign.square.fill"))
+        dogeHomeRouter.tabBarItem.tag = 0
+
+        chartHomeRouter = ChartHomeViewController()
+        chartHomeRouter.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "chart.bar"), selectedImage: UIImage(systemName: "chart.bar.fill"))
+        chartHomeRouter.tabBarItem.tag = 1
+
+        viewController?.viewControllers = [dogeHomeRouter, chartHomeRouter]
+    }
+
+    // MARK: Routing
+
+    func routeToDogeHome() {
+        let destinationDS = dogeHomeRouter.router!.dataStore!
+        passDataToDogeHome(source: dataStore!, destination: destinationDS)
+    }
+
+    func routeToChartHome() {
+        let destinationDS = chartHomeRouter.router!.dataStore!
+        passChartToDogeHome(source: dataStore!, destination: destinationDS)
+    }
+
+    // MARK: Passing data
+
+    func passDataToDogeHome(source: AppRootDataStore, destination: DogeHomeDataStore)
+    {
+        source.price.subscribe(onNext: { data in
+            guard let data = data else { return }
+            destination.price.accept(data)
+        }).disposed(by: disposeBag)
+    }
+
+    func passChartToDogeHome(source: AppRootDataStore, destination: ChartHomeDataStore)
+    {
+        source.price.subscribe(onNext: { msg in
+            destination.price.accept(msg)
+        }).disposed(by: disposeBag)
+    }
 }

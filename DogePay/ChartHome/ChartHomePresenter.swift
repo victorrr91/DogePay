@@ -12,20 +12,19 @@
 
 import UIKit
 
-protocol ChartHomePresentationLogic
-{
-  func presentSomething(response: ChartHome.Something.Response)
+protocol ChartHomePresentationLogic {
+    func presentPriceTableView(data: Msg)
 }
 
-class ChartHomePresenter: ChartHomePresentationLogic
-{
-  weak var viewController: ChartHomeDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: ChartHome.Something.Response)
-  {
-    let viewModel = ChartHome.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+class ChartHomePresenter: ChartHomePresentationLogic {
+    weak var viewController: ChartHomeDisplayLogic?
+
+    // MARK: Do something
+
+    func presentPriceTableView(data: Msg) {
+        typealias DispalyedPrice = ChartHome.ConnectWebSocket.ViewModel.DisplayedPrice
+        let displayedPrice = DispalyedPrice(msg: data)
+        let viewModel = ChartHome.ConnectWebSocket.ViewModel(displayedPrice: displayedPrice)
+        viewController?.displayPriceList(viewModel: viewModel)
+    }
 }

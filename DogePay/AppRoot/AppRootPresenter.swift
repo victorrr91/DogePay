@@ -14,18 +14,10 @@ import UIKit
 
 protocol AppRootPresentationLogic
 {
-  func presentSomething(response: AppRoot.Something.Response)
 }
 
 class AppRootPresenter: AppRootPresentationLogic
 {
-  weak var viewController: AppRootDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: AppRoot.Something.Response)
-  {
-    let viewModel = AppRoot.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: AppRootDisplayLogic?
+
 }

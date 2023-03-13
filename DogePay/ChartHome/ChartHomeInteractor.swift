@@ -11,31 +11,57 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-protocol ChartHomeBusinessLogic
-{
-  func doSomething(request: ChartHome.Something.Request)
+protocol ChartHomeBusinessLogic {
+    func fetchPriceList()
 }
 
-protocol ChartHomeDataStore
-{
-  //var name: String { get set }
+protocol ChartHomeDataStore {
+
+    var price: BehaviorRelay<Msg?> { get set }
+    var bitcoinList: BehaviorRelay<[Msg]> { get set }
+    var dolloarList: BehaviorRelay<[Msg]> { get set }
+    var etherList: BehaviorRelay<[Msg]> { get set }
+    var audList: BehaviorRelay<[Msg]> { get set }
 }
 
-class ChartHomeInteractor: ChartHomeBusinessLogic, ChartHomeDataStore
-{
-  var presenter: ChartHomePresentationLogic?
-  var worker: ChartHomeWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: ChartHome.Something.Request)
-  {
-    worker = ChartHomeWorker()
-    worker?.doSomeWork()
-    
-    let response = ChartHome.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+class ChartHomeInteractor: ChartHomeBusinessLogic, ChartHomeDataStore {
+
+    var price: BehaviorRelay<Msg?> = BehaviorRelay(value: nil)
+    var bitcoinList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var dolloarList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var etherList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+    var audList: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+
+    var disposeBag = DisposeBag()
+
+    var presenter: ChartHomePresentationLogic?
+    var worker: ChartHomeWorker?
+
+    // MARK: Do something
+
+    func fetchPriceList() {
+        price.subscribe(onNext: { [weak self] data in
+            guard let data = data else { return }
+            self?.presenter?.presentPriceTableView(data: data)
+
+            if let priceBase = data.priceBase {
+                if priceBase == PriceType.BTC.rawValue {
+                    let bitcoinList = self?.bitcoinList.value ?? []
+                    self?.bitcoinList.accept(bitcoinList + [data])
+                } else if priceBase == PriceType.USD.rawValue {
+                    let dollarList = self?.dolloarList.value ?? []
+                    self?.dolloarList.accept(dollarList + [data])
+                } else if priceBase == PriceType.ETH.rawValue {
+                    let ehtList = self?.etherList.value ?? []
+                    self?.etherList.accept(ehtList + [data])
+                } else {
+                    let audList = self?.audList.value ?? []
+                    self?.audList.accept(audList + [data])
+                }
+            }
+        }).disposed(by: disposeBag)
+    }
 }

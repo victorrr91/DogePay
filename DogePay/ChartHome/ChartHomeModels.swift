@@ -12,20 +12,37 @@
 
 import UIKit
 
-enum ChartHome
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum ChartHome {
+    // MARK: Use cases
+
+    enum ConnectWebSocket {
+        struct ViewModel {
+            struct DisplayedPrice {
+                var price: String
+                var coinImage: UIImage
+                var priceBase: String
+
+                init(msg: Msg) {
+                    self.price = msg.value ?? ""
+
+                    var image: UIImage {
+                        guard let priceBase = msg.priceBase else { return UIImage() }
+                        if priceBase == "BTC" {
+                            return PriceType.BTC.images
+                        } else if priceBase == "USD" {
+                            return PriceType.USD.images
+                        } else if priceBase == "ETH" {
+                            return PriceType.ETH.images
+                        } else {
+                            return PriceType.AUD.images
+                        }
+                    }
+                    self.priceBase = msg.priceBase ?? ""
+                    self.coinImage = image
+                }
+            }
+
+            var displayedPrice: DisplayedPrice
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }

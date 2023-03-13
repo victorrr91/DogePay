@@ -11,10 +11,88 @@
 //
 
 import UIKit
+import SwiftyJSON
+import RxSwift
+import RxRelay
 
-class DogeHomeWorker
+class DogeHomeWorker: NSObject
 {
-  func doSomeWork()
-  {
-  }
+    var websocketTask: URLSessionWebSocketTask? = nil
+    var prices: BehaviorRelay<[Msg]> = BehaviorRelay(value: [])
+
+    fileprivate func disconnect(){
+        print(#fileID, #function, #line, "- ")
+        websocketTask?.cancel(with: .goingAway, reason: nil)
+    }
+
+    func connect(){
+        print(#fileID, #function, #line, "- ")
+
+        disconnect()
+
+        let session = URLSession(configuration: .default,
+                                 delegate: self,
+                                 delegateQueue: OperationQueue())
+
+        guard let url = URL(string: "wss://ws.dogechain.info/inv") else { return }
+
+        websocketTask = session.webSocketTask(with: url)
+        websocketTask?.resume()
+        receiveMsg()
+    }
+
+    func receiveMsg() {
+        print(#fileID, #function, #line, "- ")
+
+        websocketTask?.receive(completionHandler: { [weak self] (result :Result<URLSessionWebSocketTask.Message, Error>) in
+            guard let self = self else { return }
+            switch result {
+            case .success(.string(let msg)):
+                print(#fileID, #function, #line, "- success(.string) msg: \(msg)")
+
+                do {
+                    let decoder = JSONDecoder()
+                    let result = try decoder.decode(SocketResponse.self, from: Data(msg.utf8))
+                    if let msg = result.msg {
+                        let nowValue = self.prices.value
+                        self.prices.accept(nowValue + [msg])
+                    }
+                } catch {
+                    print("error : \(error.localizedDescription)")
+                }
+                self.receiveMsg()
+            case .success(.data(let msg)):
+                print(#fileID, #function, #line, "- success(.data) msg: \(msg)")
+            case .success(let msg):
+                print(#fileID, #function, #line, "- success() msg: \(msg)")
+            case .failure(let failure):
+                print(#fileID, #function, #line, "- failure: \(failure)")
+            }
+        })
+    }
+
+    func sendMessage(){
+        print(#fileID, #function, #line, "- ")
+
+        let dictionary = ["op" : "price_sub"]
+        guard let jsonString = JSON(dictionary).rawString() else { return }
+
+        let messageToSend = URLSessionWebSocketTask.Message.string(jsonString)
+
+        self.websocketTask?.send(messageToSend, completionHandler: { err in
+            print(#fileID, #function, #line, "- err: \(String(describing: err))")
+        })
+    }
+}
+
+// MARK: WebSocket
+extension DogeHomeWorker : URLSessionWebSocketDelegate {
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        print(#fileID, #function, #line, "- 연결됨 , session: \(session)")
+    }
+
+
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        print(#fileID, #function, #line, "- 끊김 , session: \(session), closeCode: \(closeCode), reason: \(reason)")
+    }
 }

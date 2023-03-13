@@ -14,18 +14,21 @@ import UIKit
 
 protocol ChartDetailPresentationLogic
 {
-  func presentSomething(response: ChartDetail.Something.Response)
+    func presentPriceList(data: [Msg])
 }
 
 class ChartDetailPresenter: ChartDetailPresentationLogic
 {
-  weak var viewController: ChartDetailDisplayLogic?
-  
-  // MARK: Do something
-  
-  func presentSomething(response: ChartDetail.Something.Response)
-  {
-    let viewModel = ChartDetail.Something.ViewModel()
-    viewController?.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: ChartDetailDisplayLogic?
+
+    // MARK: Do something
+
+    func presentPriceList(data: [Msg])
+    {
+        typealias DisplayedPrice = ChartDetail.ConnectWebSocket.ViewModel.DisplayedPrice
+
+        let displayedPrices = data.map { DisplayedPrice(msg: $0) }
+        let viewModel = ChartDetail.ConnectWebSocket.ViewModel(displayedPrices: displayedPrices)
+        viewController?.displayPriceList(viewModel: viewModel)
+    }
 }

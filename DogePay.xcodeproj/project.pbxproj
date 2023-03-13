@@ -7,41 +7,190 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B14B534E29BCFD3F0092E6BE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B14B534D29BCFD3F0092E6BE /* RxCocoa */; };
+		B14B535029BCFD3F0092E6BE /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B14B534F29BCFD3F0092E6BE /* RxRelay */; };
+		B14B535229BCFD3F0092E6BE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B14B535129BCFD3F0092E6BE /* RxSwift */; };
+		B175510729BEB9CE00987AE0 /* ChartDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510129BEB9CE00987AE0 /* ChartDetailPresenter.swift */; };
+		B175510829BEB9CE00987AE0 /* ChartDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510229BEB9CE00987AE0 /* ChartDetailWorker.swift */; };
+		B175510929BEB9CE00987AE0 /* ChartDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510329BEB9CE00987AE0 /* ChartDetailRouter.swift */; };
+		B175510A29BEB9CE00987AE0 /* ChartDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510429BEB9CE00987AE0 /* ChartDetailModels.swift */; };
+		B175510B29BEB9CE00987AE0 /* ChartDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510529BEB9CE00987AE0 /* ChartDetailViewController.swift */; };
+		B175510C29BEB9CE00987AE0 /* ChartDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175510629BEB9CE00987AE0 /* ChartDetailInteractor.swift */; };
+		B175510F29BED32200987AE0 /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = B175510E29BED32200987AE0 /* PinLayout */; };
+		B175511129BED32500987AE0 /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = B175511029BED32500987AE0 /* FlexLayout */; };
+		B175511329BED32700987AE0 /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = B175511229BED32700987AE0 /* FlexLayoutYoga */; };
+		B175511529BED32900987AE0 /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = B175511429BED32900987AE0 /* FlexLayoutYogaKit */; };
+		B175511729BED32C00987AE0 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B175511629BED32C00987AE0 /* SwiftyJSON */; };
+		B175511929BED32F00987AE0 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B175511829BED32F00987AE0 /* RxCocoa */; };
+		B175511B29BED33300987AE0 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B175511A29BED33300987AE0 /* RxRelay */; };
+		B175511D29BED33700987AE0 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B175511C29BED33700987AE0 /* RxSwift */; };
+		B175511F29BED33B00987AE0 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = B175511E29BED33B00987AE0 /* RxTest */; };
+		B175514929BF8AD600987AE0 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = B175514829BF8AD600987AE0 /* Algorithms */; };
+		B175514D29BF8DD000987AE0 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = B175514C29BF8DD000987AE0 /* Charts */; };
+		B17BFAD029BDBFF90073FACC /* ChartHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACA29BDBFF90073FACC /* ChartHomePresenter.swift */; };
+		B17BFAD129BDBFF90073FACC /* ChartHomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACB29BDBFF90073FACC /* ChartHomeWorker.swift */; };
+		B17BFAD229BDBFF90073FACC /* ChartHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACC29BDBFF90073FACC /* ChartHomeRouter.swift */; };
+		B17BFAD329BDBFF90073FACC /* ChartHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACD29BDBFF90073FACC /* ChartHomeModels.swift */; };
+		B17BFAD429BDBFF90073FACC /* ChartHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACE29BDBFF90073FACC /* ChartHomeViewController.swift */; };
+		B17BFAD529BDBFF90073FACC /* ChartHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFACF29BDBFF90073FACC /* ChartHomeInteractor.swift */; };
+		B17BFAD929BE3EF70073FACC /* ChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17BFAD829BE3EF70073FACC /* ChartTableViewCell.swift */; };
+		B19C61E129BADC590014DB2A /* PinLayout in Frameworks */ = {isa = PBXBuildFile; productRef = B19C61E029BADC590014DB2A /* PinLayout */; };
+		B19C61E429BADD130014DB2A /* FlexLayout in Frameworks */ = {isa = PBXBuildFile; productRef = B19C61E329BADD130014DB2A /* FlexLayout */; };
+		B19C61E629BADD130014DB2A /* FlexLayoutYoga in Frameworks */ = {isa = PBXBuildFile; productRef = B19C61E529BADD130014DB2A /* FlexLayoutYoga */; };
+		B19C61E829BADD130014DB2A /* FlexLayoutYogaKit in Frameworks */ = {isa = PBXBuildFile; productRef = B19C61E729BADD130014DB2A /* FlexLayoutYogaKit */; };
+		B19C61EB29BB39A10014DB2A /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B19C61EA29BB39A10014DB2A /* SwiftyJSON */; };
+		B19C61ED29BB3A020014DB2A /* DogeSocketResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C61EC29BB3A020014DB2A /* DogeSocketResponse.swift */; };
 		B1D22C6E29B9C3BC00479C11 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C6D29B9C3BC00479C11 /* AppDelegate.swift */; };
 		B1D22C7029B9C3BC00479C11 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C6F29B9C3BC00479C11 /* SceneDelegate.swift */; };
-		B1D22C7229B9C3BC00479C11 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C7129B9C3BC00479C11 /* ViewController.swift */; };
 		B1D22C7529B9C3BC00479C11 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D22C7329B9C3BC00479C11 /* Main.storyboard */; };
 		B1D22C7729B9C3BE00479C11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1D22C7629B9C3BE00479C11 /* Assets.xcassets */; };
 		B1D22C7A29B9C3BE00479C11 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D22C7829B9C3BE00479C11 /* LaunchScreen.storyboard */; };
+		B1D22C8A29BA09B400479C11 /* AppRootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8429BA09B400479C11 /* AppRootPresenter.swift */; };
+		B1D22C8B29BA09B400479C11 /* AppRootWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8529BA09B400479C11 /* AppRootWorker.swift */; };
+		B1D22C8C29BA09B400479C11 /* AppRootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8629BA09B400479C11 /* AppRootRouter.swift */; };
+		B1D22C8D29BA09B400479C11 /* AppRootModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8729BA09B400479C11 /* AppRootModels.swift */; };
+		B1D22C8E29BA09B400479C11 /* RootTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8829BA09B400479C11 /* RootTabBarViewController.swift */; };
+		B1D22C8F29BA09B400479C11 /* AppRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C8929BA09B400479C11 /* AppRootInteractor.swift */; };
+		B1D22C9629BA532000479C11 /* DogeHomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9029BA532000479C11 /* DogeHomePresenter.swift */; };
+		B1D22C9729BA532000479C11 /* DogeHomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9129BA532000479C11 /* DogeHomeWorker.swift */; };
+		B1D22C9829BA532000479C11 /* DogeHomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9229BA532000479C11 /* DogeHomeRouter.swift */; };
+		B1D22C9929BA532000479C11 /* DogeHomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9329BA532000479C11 /* DogeHomeModels.swift */; };
+		B1D22C9A29BA532000479C11 /* DogeHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9429BA532000479C11 /* DogeHomeViewController.swift */; };
+		B1D22C9B29BA532000479C11 /* DogeHomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D22C9529BA532000479C11 /* DogeHomeInteractor.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B17BFAFC29BE62C70073FACC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1D22C6229B9C3BC00479C11 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1D22C6929B9C3BC00479C11;
+			remoteInfo = DogePay;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		B175510129BEB9CE00987AE0 /* ChartDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailPresenter.swift; sourceTree = "<group>"; };
+		B175510229BEB9CE00987AE0 /* ChartDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailWorker.swift; sourceTree = "<group>"; };
+		B175510329BEB9CE00987AE0 /* ChartDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailRouter.swift; sourceTree = "<group>"; };
+		B175510429BEB9CE00987AE0 /* ChartDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailModels.swift; sourceTree = "<group>"; };
+		B175510529BEB9CE00987AE0 /* ChartDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailViewController.swift; sourceTree = "<group>"; };
+		B175510629BEB9CE00987AE0 /* ChartDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDetailInteractor.swift; sourceTree = "<group>"; };
+		B17BFACA29BDBFF90073FACC /* ChartHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomePresenter.swift; sourceTree = "<group>"; };
+		B17BFACB29BDBFF90073FACC /* ChartHomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomeWorker.swift; sourceTree = "<group>"; };
+		B17BFACC29BDBFF90073FACC /* ChartHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomeRouter.swift; sourceTree = "<group>"; };
+		B17BFACD29BDBFF90073FACC /* ChartHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomeModels.swift; sourceTree = "<group>"; };
+		B17BFACE29BDBFF90073FACC /* ChartHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomeViewController.swift; sourceTree = "<group>"; };
+		B17BFACF29BDBFF90073FACC /* ChartHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHomeInteractor.swift; sourceTree = "<group>"; };
+		B17BFAD829BE3EF70073FACC /* ChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTableViewCell.swift; sourceTree = "<group>"; };
+		B17BFAF829BE62C70073FACC /* DogePayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogePayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19C61EC29BB3A020014DB2A /* DogeSocketResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeSocketResponse.swift; sourceTree = "<group>"; };
 		B1D22C6A29B9C3BC00479C11 /* DogePay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogePay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D22C6D29B9C3BC00479C11 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1D22C6F29B9C3BC00479C11 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B1D22C7129B9C3BC00479C11 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B1D22C7429B9C3BC00479C11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1D22C7629B9C3BE00479C11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1D22C7929B9C3BE00479C11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1D22C7B29B9C3BE00479C11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1D22C8429BA09B400479C11 /* AppRootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootPresenter.swift; sourceTree = "<group>"; };
+		B1D22C8529BA09B400479C11 /* AppRootWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootWorker.swift; sourceTree = "<group>"; };
+		B1D22C8629BA09B400479C11 /* AppRootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootRouter.swift; sourceTree = "<group>"; };
+		B1D22C8729BA09B400479C11 /* AppRootModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootModels.swift; sourceTree = "<group>"; };
+		B1D22C8829BA09B400479C11 /* RootTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarViewController.swift; sourceTree = "<group>"; };
+		B1D22C8929BA09B400479C11 /* AppRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootInteractor.swift; sourceTree = "<group>"; };
+		B1D22C9029BA532000479C11 /* DogeHomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomePresenter.swift; sourceTree = "<group>"; };
+		B1D22C9129BA532000479C11 /* DogeHomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomeWorker.swift; sourceTree = "<group>"; };
+		B1D22C9229BA532000479C11 /* DogeHomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomeRouter.swift; sourceTree = "<group>"; };
+		B1D22C9329BA532000479C11 /* DogeHomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomeModels.swift; sourceTree = "<group>"; };
+		B1D22C9429BA532000479C11 /* DogeHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomeViewController.swift; sourceTree = "<group>"; };
+		B1D22C9529BA532000479C11 /* DogeHomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeHomeInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B17BFAF529BE62C70073FACC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B175511929BED32F00987AE0 /* RxCocoa in Frameworks */,
+				B175511F29BED33B00987AE0 /* RxTest in Frameworks */,
+				B175510F29BED32200987AE0 /* PinLayout in Frameworks */,
+				B175511B29BED33300987AE0 /* RxRelay in Frameworks */,
+				B175511129BED32500987AE0 /* FlexLayout in Frameworks */,
+				B175511529BED32900987AE0 /* FlexLayoutYogaKit in Frameworks */,
+				B175511729BED32C00987AE0 /* SwiftyJSON in Frameworks */,
+				B175511D29BED33700987AE0 /* RxSwift in Frameworks */,
+				B175511329BED32700987AE0 /* FlexLayoutYoga in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1D22C6729B9C3BC00479C11 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B175514929BF8AD600987AE0 /* Algorithms in Frameworks */,
+				B14B534E29BCFD3F0092E6BE /* RxCocoa in Frameworks */,
+				B19C61E129BADC590014DB2A /* PinLayout in Frameworks */,
+				B14B535029BCFD3F0092E6BE /* RxRelay in Frameworks */,
+				B19C61E429BADD130014DB2A /* FlexLayout in Frameworks */,
+				B175514D29BF8DD000987AE0 /* Charts in Frameworks */,
+				B19C61E829BADD130014DB2A /* FlexLayoutYogaKit in Frameworks */,
+				B19C61EB29BB39A10014DB2A /* SwiftyJSON in Frameworks */,
+				B14B535229BCFD3F0092E6BE /* RxSwift in Frameworks */,
+				B19C61E629BADD130014DB2A /* FlexLayoutYoga in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B175510D29BED32200987AE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B17BFABC29BDBFBD0073FACC /* ChartHome */ = {
+			isa = PBXGroup;
+			children = (
+				B17BFACA29BDBFF90073FACC /* ChartHomePresenter.swift */,
+				B17BFACB29BDBFF90073FACC /* ChartHomeWorker.swift */,
+				B17BFACC29BDBFF90073FACC /* ChartHomeRouter.swift */,
+				B17BFACD29BDBFF90073FACC /* ChartHomeModels.swift */,
+				B17BFACE29BDBFF90073FACC /* ChartHomeViewController.swift */,
+				B17BFACF29BDBFF90073FACC /* ChartHomeInteractor.swift */,
+				B17BFAD829BE3EF70073FACC /* ChartTableViewCell.swift */,
+			);
+			path = ChartHome;
+			sourceTree = "<group>";
+		};
+		B17BFAD629BDC0200073FACC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B19C61EC29BB3A020014DB2A /* DogeSocketResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B17BFAD729BE3E7E0073FACC /* ChartDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B175510129BEB9CE00987AE0 /* ChartDetailPresenter.swift */,
+				B175510229BEB9CE00987AE0 /* ChartDetailWorker.swift */,
+				B175510329BEB9CE00987AE0 /* ChartDetailRouter.swift */,
+				B175510429BEB9CE00987AE0 /* ChartDetailModels.swift */,
+				B175510529BEB9CE00987AE0 /* ChartDetailViewController.swift */,
+				B175510629BEB9CE00987AE0 /* ChartDetailInteractor.swift */,
+			);
+			path = ChartDetail;
+			sourceTree = "<group>";
+		};
 		B1D22C6129B9C3BC00479C11 = {
 			isa = PBXGroup;
 			children = (
 				B1D22C6C29B9C3BC00479C11 /* DogePay */,
 				B1D22C6B29B9C3BC00479C11 /* Products */,
+				B175510D29BED32200987AE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				B1D22C6A29B9C3BC00479C11 /* DogePay.app */,
+				B17BFAF829BE62C70073FACC /* DogePayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,7 +208,11 @@
 			children = (
 				B1D22C6D29B9C3BC00479C11 /* AppDelegate.swift */,
 				B1D22C6F29B9C3BC00479C11 /* SceneDelegate.swift */,
-				B1D22C7129B9C3BC00479C11 /* ViewController.swift */,
+				B17BFAD629BDC0200073FACC /* Models */,
+				B1D22C8229B9EB6100479C11 /* AppRoot */,
+				B1D22C8129B9EB4100479C11 /* DogeHome */,
+				B17BFABC29BDBFBD0073FACC /* ChartHome */,
+				B17BFAD729BE3E7E0073FACC /* ChartDetail */,
 				B1D22C7329B9C3BC00479C11 /* Main.storyboard */,
 				B1D22C7629B9C3BE00479C11 /* Assets.xcassets */,
 				B1D22C7829B9C3BE00479C11 /* LaunchScreen.storyboard */,
@@ -67,9 +221,64 @@
 			path = DogePay;
 			sourceTree = "<group>";
 		};
+		B1D22C8129B9EB4100479C11 /* DogeHome */ = {
+			isa = PBXGroup;
+			children = (
+				B1D22C9029BA532000479C11 /* DogeHomePresenter.swift */,
+				B1D22C9129BA532000479C11 /* DogeHomeWorker.swift */,
+				B1D22C9229BA532000479C11 /* DogeHomeRouter.swift */,
+				B1D22C9329BA532000479C11 /* DogeHomeModels.swift */,
+				B1D22C9429BA532000479C11 /* DogeHomeViewController.swift */,
+				B1D22C9529BA532000479C11 /* DogeHomeInteractor.swift */,
+			);
+			path = DogeHome;
+			sourceTree = "<group>";
+		};
+		B1D22C8229B9EB6100479C11 /* AppRoot */ = {
+			isa = PBXGroup;
+			children = (
+				B1D22C8429BA09B400479C11 /* AppRootPresenter.swift */,
+				B1D22C8529BA09B400479C11 /* AppRootWorker.swift */,
+				B1D22C8629BA09B400479C11 /* AppRootRouter.swift */,
+				B1D22C8729BA09B400479C11 /* AppRootModels.swift */,
+				B1D22C8829BA09B400479C11 /* RootTabBarViewController.swift */,
+				B1D22C8929BA09B400479C11 /* AppRootInteractor.swift */,
+			);
+			path = AppRoot;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B17BFAF729BE62C70073FACC /* DogePayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B17BFAFE29BE62C70073FACC /* Build configuration list for PBXNativeTarget "DogePayTests" */;
+			buildPhases = (
+				B17BFAF429BE62C70073FACC /* Sources */,
+				B17BFAF529BE62C70073FACC /* Frameworks */,
+				B17BFAF629BE62C70073FACC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B17BFAFD29BE62C70073FACC /* PBXTargetDependency */,
+			);
+			name = DogePayTests;
+			packageProductDependencies = (
+				B175510E29BED32200987AE0 /* PinLayout */,
+				B175511029BED32500987AE0 /* FlexLayout */,
+				B175511229BED32700987AE0 /* FlexLayoutYoga */,
+				B175511429BED32900987AE0 /* FlexLayoutYogaKit */,
+				B175511629BED32C00987AE0 /* SwiftyJSON */,
+				B175511829BED32F00987AE0 /* RxCocoa */,
+				B175511A29BED33300987AE0 /* RxRelay */,
+				B175511C29BED33700987AE0 /* RxSwift */,
+				B175511E29BED33B00987AE0 /* RxTest */,
+			);
+			productName = DogePayTests;
+			productReference = B17BFAF829BE62C70073FACC /* DogePayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B1D22C6929B9C3BC00479C11 /* DogePay */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B1D22C7E29B9C3BE00479C11 /* Build configuration list for PBXNativeTarget "DogePay" */;
@@ -83,6 +292,18 @@
 			dependencies = (
 			);
 			name = DogePay;
+			packageProductDependencies = (
+				B19C61E029BADC590014DB2A /* PinLayout */,
+				B19C61E329BADD130014DB2A /* FlexLayout */,
+				B19C61E529BADD130014DB2A /* FlexLayoutYoga */,
+				B19C61E729BADD130014DB2A /* FlexLayoutYogaKit */,
+				B19C61EA29BB39A10014DB2A /* SwiftyJSON */,
+				B14B534D29BCFD3F0092E6BE /* RxCocoa */,
+				B14B534F29BCFD3F0092E6BE /* RxRelay */,
+				B14B535129BCFD3F0092E6BE /* RxSwift */,
+				B175514829BF8AD600987AE0 /* Algorithms */,
+				B175514C29BF8DD000987AE0 /* Charts */,
+			);
 			productName = DogePay;
 			productReference = B1D22C6A29B9C3BC00479C11 /* DogePay.app */;
 			productType = "com.apple.product-type.application";
@@ -97,6 +318,10 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					B17BFAF729BE62C70073FACC = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = B1D22C6929B9C3BC00479C11;
+					};
 					B1D22C6929B9C3BC00479C11 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -111,16 +336,32 @@
 				Base,
 			);
 			mainGroup = B1D22C6129B9C3BC00479C11;
+			packageReferences = (
+				B19C61DF29BADC590014DB2A /* XCRemoteSwiftPackageReference "PinLayout" */,
+				B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */,
+				B19C61E929BB39A10014DB2A /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B175514729BF8AD600987AE0 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+				B175514B29BF8DD000987AE0 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = B1D22C6B29B9C3BC00479C11 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				B1D22C6929B9C3BC00479C11 /* DogePay */,
+				B17BFAF729BE62C70073FACC /* DogePayTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B17BFAF629BE62C70073FACC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1D22C6829B9C3BC00479C11 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -134,17 +375,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B17BFAF429BE62C70073FACC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B1D22C6629B9C3BC00479C11 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1D22C7229B9C3BC00479C11 /* ViewController.swift in Sources */,
+				B175510729BEB9CE00987AE0 /* ChartDetailPresenter.swift in Sources */,
+				B1D22C9629BA532000479C11 /* DogeHomePresenter.swift in Sources */,
+				B175510C29BEB9CE00987AE0 /* ChartDetailInteractor.swift in Sources */,
+				B1D22C8B29BA09B400479C11 /* AppRootWorker.swift in Sources */,
+				B19C61ED29BB3A020014DB2A /* DogeSocketResponse.swift in Sources */,
+				B1D22C8E29BA09B400479C11 /* RootTabBarViewController.swift in Sources */,
+				B1D22C9B29BA532000479C11 /* DogeHomeInteractor.swift in Sources */,
+				B17BFAD329BDBFF90073FACC /* ChartHomeModels.swift in Sources */,
+				B1D22C8C29BA09B400479C11 /* AppRootRouter.swift in Sources */,
 				B1D22C6E29B9C3BC00479C11 /* AppDelegate.swift in Sources */,
+				B1D22C9A29BA532000479C11 /* DogeHomeViewController.swift in Sources */,
+				B17BFAD429BDBFF90073FACC /* ChartHomeViewController.swift in Sources */,
+				B175510B29BEB9CE00987AE0 /* ChartDetailViewController.swift in Sources */,
+				B175510A29BEB9CE00987AE0 /* ChartDetailModels.swift in Sources */,
+				B1D22C9729BA532000479C11 /* DogeHomeWorker.swift in Sources */,
+				B17BFAD529BDBFF90073FACC /* ChartHomeInteractor.swift in Sources */,
+				B17BFAD029BDBFF90073FACC /* ChartHomePresenter.swift in Sources */,
+				B1D22C9929BA532000479C11 /* DogeHomeModels.swift in Sources */,
+				B1D22C8A29BA09B400479C11 /* AppRootPresenter.swift in Sources */,
+				B1D22C9829BA532000479C11 /* DogeHomeRouter.swift in Sources */,
+				B175510829BEB9CE00987AE0 /* ChartDetailWorker.swift in Sources */,
+				B1D22C8D29BA09B400479C11 /* AppRootModels.swift in Sources */,
+				B17BFAD229BDBFF90073FACC /* ChartHomeRouter.swift in Sources */,
+				B17BFAD929BE3EF70073FACC /* ChartTableViewCell.swift in Sources */,
 				B1D22C7029B9C3BC00479C11 /* SceneDelegate.swift in Sources */,
+				B17BFAD129BDBFF90073FACC /* ChartHomeWorker.swift in Sources */,
+				B175510929BEB9CE00987AE0 /* ChartDetailRouter.swift in Sources */,
+				B1D22C8F29BA09B400479C11 /* AppRootInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B17BFAFD29BE62C70073FACC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1D22C6929B9C3BC00479C11 /* DogePay */;
+			targetProxy = B17BFAFC29BE62C70073FACC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B1D22C7329B9C3BC00479C11 /* Main.storyboard */ = {
@@ -166,6 +447,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B17BFAFF29BE62C70073FACC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N4G34Z5GTF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SWLEE.DogePayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogePay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogePay";
+			};
+			name = Debug;
+		};
+		B17BFB0029BE62C70073FACC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N4G34Z5GTF;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = SWLEE.DogePayTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DogePay.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DogePay";
+			};
+			name = Release;
+		};
 		B1D22C7C29B9C3BE00479C11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -210,13 +527,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=*]" = "FLEXLAYOUT_SWIFT_PACKAGE=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +588,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -292,9 +610,9 @@
 				INFOPLIST_FILE = DogePay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,9 +638,9 @@
 				INFOPLIST_FILE = DogePay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,6 +657,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B17BFAFE29BE62C70073FACC /* Build configuration list for PBXNativeTarget "DogePayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B17BFAFF29BE62C70073FACC /* Debug */,
+				B17BFB0029BE62C70073FACC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B1D22C6529B9C3BC00479C11 /* Build configuration list for PBXProject "DogePay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -358,6 +685,155 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		B175514729BF8AD600987AE0 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		B175514B29BF8DD000987AE0 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B19C61DF29BADC590014DB2A /* XCRemoteSwiftPackageReference "PinLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/PinLayout";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/layoutBox/FlexLayout.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		B19C61E929BB39A10014DB2A /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B14B534D29BCFD3F0092E6BE /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B14B534F29BCFD3F0092E6BE /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B14B535129BCFD3F0092E6BE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		B175510E29BED32200987AE0 /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61DF29BADC590014DB2A /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		B175511029BED32500987AE0 /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		B175511229BED32700987AE0 /* FlexLayoutYoga */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYoga;
+		};
+		B175511429BED32900987AE0 /* FlexLayoutYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYogaKit;
+		};
+		B175511629BED32C00987AE0 /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E929BB39A10014DB2A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+		B175511829BED32F00987AE0 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		B175511A29BED33300987AE0 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		B175511C29BED33700987AE0 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		B175511E29BED33B00987AE0 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B14B534C29BCFD3F0092E6BE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		B175514829BF8AD600987AE0 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B175514729BF8AD600987AE0 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+		B175514C29BF8DD000987AE0 /* Charts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B175514B29BF8DD000987AE0 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = Charts;
+		};
+		B19C61E029BADC590014DB2A /* PinLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61DF29BADC590014DB2A /* XCRemoteSwiftPackageReference "PinLayout" */;
+			productName = PinLayout;
+		};
+		B19C61E329BADD130014DB2A /* FlexLayout */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayout;
+		};
+		B19C61E529BADD130014DB2A /* FlexLayoutYoga */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYoga;
+		};
+		B19C61E729BADD130014DB2A /* FlexLayoutYogaKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E229BADD130014DB2A /* XCRemoteSwiftPackageReference "FlexLayout" */;
+			productName = FlexLayoutYogaKit;
+		};
+		B19C61EA29BB39A10014DB2A /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B19C61E929BB39A10014DB2A /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1D22C6229B9C3BC00479C11 /* Project object */;
 }

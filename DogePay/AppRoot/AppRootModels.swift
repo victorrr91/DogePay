@@ -15,17 +15,20 @@ import UIKit
 enum AppRoot
 {
   // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+}
+
+enum PriceType: String {
+    case BTC
+    case USD
+    case ETH
+    case AUD
+
+    var images: UIImage {
+        switch self {
+        case .BTC: return UIImage(named: "bitcoinImage")!
+        case .USD: return UIImage(named: "dollarImage")!
+        case .ETH: return UIImage(named: "ethImage")!
+        case .AUD: return UIImage(named: "audImage")!
+        }
     }
-    struct Response
-    {
-    }
-    struct ViewModel
-    {
-    }
-  }
 }
